@@ -1,0 +1,62 @@
+<resources>
+
+    <style name="Root.Theme" parent="Theme.AppCompat.Light.NoActionBar"/>
+    <style name="Root.Widget" parent="Theme.AppCompat.NoActionBar"/>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme.Base" parent="Root.Theme">
+        <!-- Customize your theme here. -->
+        <item name="popupItemBackground">?android:selectableItemBackground</item>
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="actionBarStyle">@style/AppTheme.Widget.ActionBar</item>
+        <item name="actionBarPopupTheme">@style/AppTheme.PopupOverlay</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+        <item name="actionModeBackground">@color/colorPrimary</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="elevation">0dp</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Activity</item>
+
+        <item name="android:dividerVertical">@color/divider</item>
+        <item name="android:dividerHorizontal">@color/divider</item>
+    </style>
+
+    <style name="AppTheme.Read" parent="AppTheme.Base"/>
+
+    <style name="AppTheme.Read.Light" parent="AppTheme.Read"/>
+
+    <style name="AppTheme.Read.Widget" parent="Root.Widget">
+        <item name="android:popupMenuStyle">@style/Widget.Read.PopupMenu</item>
+    </style>
+
+    <style name="Widget.Read.PopupMenu" parent="Widget.AppCompat.Light.PopupMenu">
+        <item name="android:dropDownSelector">?popupItemBackground</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="AppTheme.Widget.ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="background">@color/colorPrimary</item>
+        <item name="titleTextStyle">@style/AppTheme.TextAppearance.Widget.ActionBar.Title</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetEnd">0dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.Widget.ActionBar.Title" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+</resources>

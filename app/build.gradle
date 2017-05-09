@@ -1,0 +1,115 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+def versionMajor = 0
+def versionMinor = 0
+def versionPatch = 1
+
+def packageName = "me.donnie.read"
+
+def buildTime = new Date().format("yyyy-MM-dd'T'HH:mm'Z'", TimeZone.getTimeZone("UTC"))
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+    defaultConfig {
+        applicationId packageName
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versionMajor * 100 + versionMinor * 10 + versionPatch
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+
+        buildConfigField "String", "BUILD_TIME", "\"${buildTime}\""
+        buildConfigField "String", "API_BASE_URL", "\"http://api.zhuishushenqi.com\""
+        buildConfigField "String", "IMG_BASE_URL", "\"http://statics.zhuishushenqi.com\""
+    }
+
+    /*dataBinding {
+        enabled = true
+    }*/
+
+    kapt {
+        generateStubs = true
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'META-INF/rxjava.properties'
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+        abortOnError false
+    }
+
+    aaptOptions {
+        noCompress 'apk'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    testCompile libraries.junit
+    compile libraries.supportAppCompat
+    compile libraries.supportCardView
+    compile libraries.supportDesign
+    compile libraries.supportRecyclerView
+    compile libraries.supportVectorDrawable
+    compile libraries.constraint
+
+    compile libraries.dagger
+    //annotationProcessor libraries.daggerCompiler
+    kapt libraries.daggerCompiler
+    compile libraries.butterKnife
+    kapt libraries.butterKnifeCompiler
+    compile libraries.rxJava2
+    compile libraries.rxJava2Interop
+    compile libraries.rxAndroid
+    compile libraries.timber
+
+    compile libraries.okHttp
+    compile libraries.logginInterceptor
+    compile libraries.retrofit
+    compile libraries.retrofitRxJava2
+    compile libraries.retrofitGson
+    compile libraries.gson
+    compile libraries.glide
+    compile libraries.multiStateView
+
+    compile libraries.icepick
+    provided libraries.icepickProcessor
+    compile libraries.prefser
+    compile libraries.multiDex
+    compile libraries.circleImageView
+
+    compile libraries.kotlin_stdlib
+    compile libraries.kotlin_reflect
+
+    compile libraries.walle
+
+    //kapt libraries.databinding
+}
