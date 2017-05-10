@@ -6,8 +6,9 @@
     android:layout_margin="@dimen/dp_10"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp_100"
-    app:cardCornerRadius="@dimen/dp_1"
-    app:cardElevation="@dimen/dp_1">
+    android:background="?attr/selectableItemBackgroundBorderless"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="0dp">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -18,42 +19,57 @@
             android:id="@+id/img"
             android:layout_width="@dimen/dp_80"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             tools:src="@mipmap/ic_launcher"/>
 
         <LinearLayout
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_marginStart="@dimen/dp_10"
+            android:paddingRight="@dimen/dp_10"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/title"
+                android:layout_marginTop="@dimen/dp_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/sp_18"
+                android:textSize="@dimen/sp_16"
                 android:textColor="@color/colorPrimaryText"
                 tools:text="斗破苍穹"/>
 
             <TextView
                 android:id="@+id/author"
-                android:layout_marginTop="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/sp_16"
+                android:textSize="@dimen/sp_12"
                 android:textColor="@color/colorSecondaryText"
                 tools:text="作者: 天苍土豆"/>
 
             <TextView
                 android:id="@+id/desc"
-                android:layout_marginTop="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxLines="2"
                 android:ellipsize="end"
-                android:textSize="@dimen/sp_14"
+                android:textSize="@dimen/sp_12"
                 android:textColor="@color/gray_500"
-                tools:text="简介: 阿里快速惊动了房间爱上"/>
+                tools:text="简介: 阿asdfasdfasdfasdfasdfasdf里快速惊动了房间爱上"/>
+
+            <TextView
+                android:id="@+id/update"
+                android:layout_marginTop="@dimen/dp_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:lines="1"
+                android:ellipsize="end"
+                android:textSize="@dimen/sp_12"
+                android:textColor="@color/colorSecondaryText"
+                tools:text="2017-09-01"/>
 
         </LinearLayout>
 

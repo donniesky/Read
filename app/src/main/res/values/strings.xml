@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">Read</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">主页</string>
+    <string name="title_dashboard">社区</string>
+    <string name="title_explore">发现</string>
+    <string name="title_notifications">我的</string>
+    
+    <string name="complex_discuss_area">综合讨论区</string>
+    <string name="book_comment_area">书评区</string>
+    <string name="shortage_help_area">书荒互助区</string>
+    <string name="original_area">原创区</string>
+    <string name="female_area">女生区</string>
+
+    <string name="ranking">排行榜</string>
+    <string name="subject_book">主题书单</string>
+    <string name="category">分类</string>
 </resources>

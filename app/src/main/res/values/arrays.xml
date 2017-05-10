@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="community_strings">
+        <item>@string/complex_discuss_area</item>
+        <item>@string/book_comment_area</item>
+        <item>@string/shortage_help_area</item>
+        <item>@string/original_area</item>
+        <item>@string/female_area</item>
+    </string-array>
+
+    <string-array name="explore_strings">
+        <item>@string/ranking</item>
+        <item>@string/subject_book</item>
+        <item>@string/category</item>
+    </string-array>
+
+    <string-array name="explore_icons">
+        <item>@drawable/ic_assessment</item>
+        <item>@drawable/ic_stars</item>
+        <item>@drawable/ic_toc</item>
+    </string-array>
+
+    <integer-array name="community_icons">
+        <item>@drawable/ic_comment</item>
+        <item>@drawable/ic_border_color</item>
+        <item>@drawable/ic_favorite</item>
+        <item>@drawable/ic_brush</item>
+        <item>@drawable/ic_face</item>
+    </integer-array>
+
+</resources>

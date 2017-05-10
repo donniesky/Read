@@ -12,7 +12,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowBackground">@color/gray_100</item>
         <item name="actionBarStyle">@style/AppTheme.Widget.ActionBar</item>
         <item name="actionBarPopupTheme">@style/AppTheme.PopupOverlay</item>
         <item name="actionMenuTextColor">@android:color/white</item>
@@ -21,7 +21,7 @@
         <item name="windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
 
-        <item name="elevation">0dp</item>
+        <item name="elevation">10dp</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowAnimationStyle">@android:style/Animation.Activity</item>
 
@@ -51,7 +51,7 @@
         <item name="contentInsetStart">0dp</item>
         <item name="contentInsetEnd">0dp</item>
         <item name="contentInsetStartWithNavigation">0dp</item>
-        <item name="elevation">0dp</item>
+        <item name="elevation">10dp</item>
     </style>
 
     <style name="AppTheme.TextAppearance.Widget.ActionBar.Title" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">

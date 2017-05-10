@@ -110,6 +110,5 @@ dependencies {
     compile libraries.kotlin_reflect
 
     compile libraries.walle
-
     //kapt libraries.databinding
 }

@@ -45,8 +45,8 @@ class RecommendFragment : BaseFragment(), RecommendContract.View {
     }
 
     override fun setupComponent() {
-        recommendComponent = mainComponent?.plus(RecommendModule())
-        recommendComponent?.inject(this)
+        recommendComponent = mainComponent!!.plus(RecommendModule())
+        recommendComponent!!.inject(this)
     }
 
     override fun getLayoutResId(): Int {
@@ -79,7 +79,7 @@ class RecommendFragment : BaseFragment(), RecommendContract.View {
 
     override fun loadRecommendSuccess(books: List<Book>) {
         refresh_layout.isRefreshing = false
-        adapter?.addData(books)
+        adapter?.addNewData(books)
         state_view.viewState = MultiStateView.VIEW_STATE_CONTENT
     }
 

@@ -1,5 +1,7 @@
 package me.donnie.read.common.utils
 
+import android.os.Parcel
+import android.os.Parcelable
 import android.support.design.internal.BottomNavigationItemView
 import android.support.design.internal.BottomNavigationMenuView
 import android.support.design.widget.BottomNavigationView
@@ -14,6 +16,14 @@ import java.util.*
  * @description
  * @version
  */
+inline fun <reified T : Parcelable> createParcel(crossinline createFromParcel: (Parcel) -> T?): Parcelable.Creator<T> =
+        object : Parcelable.Creator<T> {
+            override fun createFromParcel(source: Parcel): T? = createFromParcel(source)
+
+            override fun newArray(size: Int): Array<out T?> = arrayOfNulls(size)
+
+        }
+
 
 fun BottomNavigationView.disableShiftingMode() {
     val menuView: BottomNavigationMenuView = this.getChildAt(0) as BottomNavigationMenuView
@@ -23,7 +33,7 @@ fun BottomNavigationView.disableShiftingMode() {
         shiftingMode.isAccessible = true
         shiftingMode.setBoolean(menuView, false)
         shiftingMode.isAccessible = false
-        for (i in 0..menuView.childCount-1) {
+        for (i in 0..menuView.childCount - 1) {
             val item: BottomNavigationItemView = menuView.getChildAt(i) as BottomNavigationItemView
             item.setShiftingMode(false)
             item.setChecked(item.itemData.isChecked)
@@ -54,24 +64,30 @@ object dateFormater : ThreadLocal<SimpleDateFormat>() {
     }
 }
 
-fun String.friendly_time(time: Date?): String {
-    if (time == null) {
+object dateFormater1 : ThreadLocal<SimpleDateFormat>() {
+    override fun initialValue(): SimpleDateFormat {
+        return SimpleDateFormat("yyyy-MM-dd")
+    }
+}
+
+fun Date.friendly_time(): String {
+    if (this == null) {
         return ""
     }
     var ftime = ""
     val cal = Calendar.getInstance()
 
     val curDate = dateFormater.get().format(cal.time)
-    val paramDate = dateFormater.get().format(time)
+    val paramDate = dateFormater.get().format(this)
 
     if (curDate.equals(paramDate)) {
-        val minute = ((cal.timeInMillis - time.time) / 60000) as Int
-        val hour = ((cal.timeInMillis - time.time) / 3600000) as Int
+        val minute = ((cal.timeInMillis - this.time) / 60000) as Int
+        val hour = ((cal.timeInMillis - this.time) / 3600000) as Int
         if (minute == 0) {
             ftime = "刚刚"
         } else {
             if (hour == 0) {
-                ftime = Math.max((cal.timeInMillis - time.time)/60000, 1).toString() + "分钟前"
+                ftime = Math.max((cal.timeInMillis - this.time) / 60000, 1).toString() + "分钟前"
             } else {
                 ftime = hour.toString() + "小时前"
             }
@@ -79,16 +95,16 @@ fun String.friendly_time(time: Date?): String {
         return ftime
     }
 
-    val lt = time.time / 86400000
+    val lt = this.time / 86400000
     val ct = cal.timeInMillis / 86400000
-    val days = (ct - lt) as Int
+    val days = (ct - lt).toInt()
 
     if (days == 0) {
-        val hour = ((cal.timeInMillis - time.time)/3600000) as Int
+        val hour = ((cal.timeInMillis - this.time) / 3600000).toInt()
         if (hour == 0) {
-            ftime = Math.max((cal.timeInMillis - time.time)/60000, 1).toString()+"分钟前"
+            ftime = Math.max((cal.timeInMillis - this.time) / 60000, 1).toString() + "分钟前"
         } else {
-            ftime = hour.toString()+"小时前"
+            ftime = hour.toString() + "小时前"
         }
     } else if (days == 1) {
         ftime = "昨天"
@@ -103,7 +119,7 @@ fun String.friendly_time(time: Date?): String {
     } else if (days > 3 * 31 && days <= 4 * 31) {
         ftime = "三个月前"
     } else {
-        ftime = dateFormater.get().format(time)
+        ftime = dateFormater1.get().format(this)
     }
     return ftime
 }

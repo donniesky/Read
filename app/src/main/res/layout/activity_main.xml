@@ -38,9 +38,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="?android:attr/windowBackground"
-            android:elevation="@dimen/dp_4"
-            app:elevation="@dimen/dp_4"
+            android:background="@android:color/white"
+            android:elevation="@dimen/dp_10"
+            app:elevation="@dimen/dp_10"
             app:menu="@menu/navigation"/>
 
     </LinearLayout>

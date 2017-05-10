@@ -11,6 +11,8 @@ import me.donnie.read.R
 import me.donnie.read.common.base.BaseActivity
 import me.donnie.read.common.injection.component.AppComponent
 import me.donnie.read.common.utils.disableShiftingMode
+import me.donnie.read.ui.community.CommunityFragment
+import me.donnie.read.ui.explore.ExploreFragment
 import me.donnie.read.ui.recommend.RecommendFragment
 import me.donnie.read.ui.test.TestFragment
 import javax.inject.Inject
@@ -24,6 +26,10 @@ import javax.inject.Inject
 class MainActivity : BaseActivity(), MainContract.View {
 
     private var recommendFragment: Fragment? = null
+
+    private var communityFragment: Fragment? = null
+
+    private var exploreFragment: Fragment? = null
 
     private var testFragment: Fragment? = null
 
@@ -63,6 +69,8 @@ class MainActivity : BaseActivity(), MainContract.View {
             item.isChecked = true
             when(item.itemId) {
                 R.id.navigation_home -> switchFragment(recommendFragment, RecommendFragment.TAG)
+                R.id.navigation_dashboard -> switchFragment(communityFragment, CommunityFragment.TAG)
+                R.id.navigation_notifications -> switchFragment(exploreFragment, ExploreFragment.TAG)
                 else -> switchFragment(testFragment, TestFragment.TAG)
             }
 
@@ -75,10 +83,18 @@ class MainActivity : BaseActivity(), MainContract.View {
     private fun initFragments(savedInstanceState: Bundle?) {
         val manager = supportFragmentManager
         recommendFragment = manager.findFragmentByTag(RecommendFragment.TAG)
+        communityFragment = manager.findFragmentByTag(CommunityFragment.TAG)
+        exploreFragment = manager.findFragmentByTag(ExploreFragment.TAG)
         testFragment = manager.findFragmentByTag(TestFragment.TAG)
 
         if (recommendFragment == null) {
             recommendFragment = RecommendFragment.newInstance()
+        }
+        if (communityFragment == null) {
+            communityFragment = CommunityFragment.newInstance()
+        }
+        if (exploreFragment == null) {
+            exploreFragment = ExploreFragment.newInstance()
         }
         if (testFragment == null) {
             testFragment = TestFragment.newInstance()
@@ -100,7 +116,7 @@ class MainActivity : BaseActivity(), MainContract.View {
         if (currentFragment != null) {
             ft.detach(currentFragment)
         }
-        if (fragment!!.isDetached) {
+        if (fragment.isDetached) {
             ft.attach(fragment)
         } else {
             ft.add(R.id.container, fragment, tag)
