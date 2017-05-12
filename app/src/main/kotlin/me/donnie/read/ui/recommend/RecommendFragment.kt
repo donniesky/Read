@@ -7,7 +7,7 @@ import com.kennyc.view.MultiStateView
 import kotlinx.android.synthetic.main.fragment_recommend.*
 import me.donnie.read.R
 import me.donnie.read.common.base.BaseFragment
-import me.donnie.read.data.entity.Book
+import me.donnie.read.data.entity.BookList
 import me.donnie.read.ui.main.MainActivity
 import me.donnie.read.ui.main.MainComponent
 import javax.inject.Inject
@@ -77,7 +77,7 @@ class RecommendFragment : BaseFragment(), RecommendContract.View {
         }
     }
 
-    override fun loadRecommendSuccess(books: List<Book>) {
+    override fun loadRecommendSuccess(books: List<BookList.Book>) {
         refresh_layout.isRefreshing = false
         adapter?.addNewData(books)
         state_view.viewState = MultiStateView.VIEW_STATE_CONTENT

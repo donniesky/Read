@@ -3,7 +3,7 @@ package me.donnie.read.ui.recommend
 import me.donnie.read.common.base.BaseNavigator
 import me.donnie.read.common.base.BasePresenter
 import me.donnie.read.common.base.BaseView
-import me.donnie.read.data.entity.Book
+import me.donnie.read.data.entity.BookList.Book
 
 /**
  * @author donnieSky

@@ -12,7 +12,9 @@ import me.donnie.read.common.base.BaseView
  */
 interface ExploreContract {
 
-    interface Navigator : BaseNavigator
+    interface Navigator : BaseNavigator {
+        fun navigateToRank()
+    }
 
     interface View : BaseView
 

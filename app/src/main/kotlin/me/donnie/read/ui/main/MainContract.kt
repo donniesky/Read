@@ -14,6 +14,8 @@ interface MainContract {
 
     interface Navigator : BaseNavigator {
         fun navigateToRecommend()
+        fun navigateToDiscussList()
+        fun navigateToRank()
     }
 
     interface View : BaseView

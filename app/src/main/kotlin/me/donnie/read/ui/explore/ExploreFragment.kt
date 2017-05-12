@@ -65,6 +65,12 @@ class ExploreFragment : BaseFragment() {
             rv.adapter = adapter
             adapter!!.addNewData(getData())
         }
+
+        adapter!!.setOnItemClickListener { _, _, position -> run {
+            when(position) {
+                0 -> navigator.navigateToRank()
+            }
+        } }
     }
 
     private fun getData(): List<Community> {

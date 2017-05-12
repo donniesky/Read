@@ -64,6 +64,14 @@ class CommunityFragment : BaseFragment() {
             rv.adapter = adapter
             adapter!!.addNewData(getData())
         }
+
+        adapter!!.setOnItemClickListener { _, _, position ->
+            run {
+                when (position) {
+                    0 -> navigator.navigateToDiscussList()
+                }
+            }
+        }
     }
 
     private fun getData(): List<Community> {

@@ -110,5 +110,6 @@ dependencies {
     compile libraries.kotlin_reflect
 
     compile libraries.walle
+    compile libraries.divider
     //kapt libraries.databinding
 }

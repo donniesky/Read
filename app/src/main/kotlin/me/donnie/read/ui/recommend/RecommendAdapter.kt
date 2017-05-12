@@ -6,7 +6,7 @@ import me.donnie.adapter.ViewHolder
 import me.donnie.read.BuildConfig
 import me.donnie.read.R
 import me.donnie.read.common.utils.friendly_time
-import me.donnie.read.data.entity.Book
+import me.donnie.read.data.entity.BookList.Book
 
 /**
  * @author donnieSky

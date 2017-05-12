@@ -12,7 +12,9 @@ import me.donnie.read.common.base.BaseView
  */
 interface CommunityContract {
 
-    interface Navigator : BaseNavigator
+    interface Navigator : BaseNavigator {
+        fun navigateToDiscussList()
+    }
 
     interface View : BaseView
 

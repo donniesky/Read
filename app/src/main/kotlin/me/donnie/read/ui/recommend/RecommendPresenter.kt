@@ -4,8 +4,8 @@ import com.github.pwittchen.prefser.library.Prefser
 import io.reactivex.disposables.CompositeDisposable
 import me.donnie.read.common.utils.SchedulerTransformer
 import me.donnie.read.data.BookRepository
-import me.donnie.read.data.entity.Book
-import me.donnie.read.data.entity.Result
+import me.donnie.read.data.entity.BookList
+import me.donnie.read.data.entity.BookList.Book
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -39,7 +39,7 @@ class RecommendPresenter @Inject constructor(val bookRepository: BookRepository)
 
     override fun loadRecommend(gender: String) {
         disposable.add(bookRepository.getRecommend(gender)
-                .compose(SchedulerTransformer<Result<Book>>())
+                .compose(SchedulerTransformer<BookList>())
                 .subscribe({ book ->
                     onRecommendResponse(book.books) },
                     { e ->

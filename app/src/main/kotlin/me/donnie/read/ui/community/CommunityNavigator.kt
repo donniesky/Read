@@ -9,4 +9,9 @@ import javax.inject.Inject
  * @description
  * @version
  */
-class CommunityNavigator @Inject constructor(navigator: MainContract.Navigator) : CommunityContract.Navigator
+class CommunityNavigator @Inject constructor(val navigator: MainContract.Navigator) : CommunityContract.Navigator {
+
+    override fun navigateToDiscussList() {
+        navigator.navigateToDiscussList()
+    }
+}

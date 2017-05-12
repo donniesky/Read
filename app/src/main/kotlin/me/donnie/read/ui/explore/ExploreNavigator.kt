@@ -9,4 +9,10 @@ import javax.inject.Inject
  * @description
  * @version
  */
-class ExploreNavigator @Inject constructor(navigator: MainContract.Navigator) : ExploreContract.Navigator
+class ExploreNavigator @Inject constructor(val navigator: MainContract.Navigator) : ExploreContract.Navigator {
+
+    override fun navigateToRank() {
+        navigator.navigateToRank()
+    }
+
+}

@@ -1,6 +1,8 @@
 package me.donnie.read.ui.main
 
 import com.github.pwittchen.prefser.library.Prefser
+import me.donnie.read.ui.community.discuss.DiscussActivity
+import me.donnie.read.ui.explore.rank.RankActivity
 import javax.inject.Inject
 
 /**
@@ -16,6 +18,16 @@ class MainNavigator @Inject constructor(val activity: MainActivity) : MainContra
 
     override fun navigateToRecommend() {
 
+    }
+
+    override fun navigateToDiscussList() {
+        val callingIntent = DiscussActivity.getCallingIntent(activity)
+        activity.startActivity(callingIntent)
+    }
+
+    override fun navigateToRank() {
+        val callingIntent = RankActivity.getCallingIntent(activity)
+        activity.startActivity(callingIntent)
     }
 
 }

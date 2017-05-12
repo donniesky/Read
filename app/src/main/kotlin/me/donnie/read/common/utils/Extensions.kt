@@ -1,11 +1,13 @@
 package me.donnie.read.common.utils
 
+import android.graphics.*
 import android.os.Parcel
 import android.os.Parcelable
 import android.support.design.internal.BottomNavigationItemView
 import android.support.design.internal.BottomNavigationMenuView
 import android.support.design.widget.BottomNavigationView
 import android.view.View
+import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
@@ -16,6 +18,43 @@ import java.util.*
  * @description
  * @version
  */
+
+fun Bitmap.circleCrop(pool: BitmapPool): Bitmap {
+    val size = Math.min(this.width, this.height)
+    val x = (this.width - size)/2
+    val y = (this.height - size)/2
+
+    var squared = Bitmap.createBitmap(this, x, y, size, size)
+
+    var result = pool.get(size, size, Bitmap.Config.ARGB_8888)
+    if (result == null) {
+        result = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
+    }
+
+    var canvas = Canvas(result)
+    var paint = Paint()
+    paint.shader = BitmapShader(squared, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
+    paint.isAntiAlias = true
+    var r = size/2f
+    canvas.drawCircle(r, r, r, paint)
+    return result
+}
+
+fun Bitmap.roundCrop(pool: BitmapPool, radius: Float): Bitmap {
+    var result = pool.get(this.width, this.height, Bitmap.Config.ARGB_8888)
+    if (result == null) {
+        result = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_8888)
+    }
+
+    var canvas = Canvas(result)
+    var paint = Paint()
+    paint.shader = BitmapShader(this, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
+    paint.isAntiAlias = true
+    val rectF = RectF(0f, 0f, this.width.toFloat(), this.height.toFloat())
+    canvas.drawRoundRect(rectF, radius, radius, paint)
+    return result
+}
+
 inline fun <reified T : Parcelable> createParcel(crossinline createFromParcel: (Parcel) -> T?): Parcelable.Creator<T> =
         object : Parcelable.Creator<T> {
             override fun createFromParcel(source: Parcel): T? = createFromParcel(source)
@@ -60,13 +99,13 @@ fun View.Invisible() {
 
 object dateFormater : ThreadLocal<SimpleDateFormat>() {
     override fun initialValue(): SimpleDateFormat {
-        return SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        return SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA)
     }
 }
 
 object dateFormater1 : ThreadLocal<SimpleDateFormat>() {
     override fun initialValue(): SimpleDateFormat {
-        return SimpleDateFormat("yyyy-MM-dd")
+        return SimpleDateFormat("yyyy-MM-dd", Locale.CHINA)
     }
 }
 
