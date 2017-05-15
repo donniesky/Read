@@ -61,7 +61,7 @@ class RankActivity : BaseActivity(), RankContract.View {
         Divider.with(this)
                 .hideLastDivider()
                 .size(30)
-                .color(resources.getColor(R.color.gray_200))
+                .color(resources.getColor(R.color.gray_100))
                 .build().addTo(rv)
 
         refresh_layout.setOnRefreshListener {
@@ -79,16 +79,21 @@ class RankActivity : BaseActivity(), RankContract.View {
             refresh_layout.isRefreshing = true
             presenter.loadAllRank()
         }
+
+        adapter!!.setOnItemClickListener { adapter, _, position ->
+            val item = adapter!!.getItem(position) as RankList.Rank
+            navigator.navigateToHotRank(item)
+        }
     }
 
     override fun loadAllRankSuccess(ranks: List<RankList.Rank>) {
         refresh_layout.isRefreshing = false
-        adapter?.addNewData(ranks)
+        adapter!!.addNewData(ranks)
     }
 
     override fun onError() {
         refresh_layout.isRefreshing = false
-        toast?.toast("error")
+        toast!!.toast("error")
     }
 
     override fun onDestroy() {

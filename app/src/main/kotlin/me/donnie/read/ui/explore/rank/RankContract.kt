@@ -13,7 +13,9 @@ import me.donnie.read.data.entity.RankList
  */
 interface RankContract {
 
-    interface Navigator : BaseNavigator
+    interface Navigator : BaseNavigator {
+        fun navigateToHotRank(rank: RankList.Rank)
+    }
 
     interface View : BaseView {
         fun loadAllRankSuccess(ranks: List<RankList.Rank>)

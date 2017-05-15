@@ -12,6 +12,9 @@
     <string name="female_area">女生区</string>
 
     <string name="ranking">排行榜</string>
+    <string name="week_rank">周榜</string>
+    <string name="month_rank">月榜</string>
+    <string name="total_rank">总榜</string>
     <string name="subject_book">主题书单</string>
     <string name="category">分类</string>
 </resources>

@@ -84,6 +84,11 @@ fun BottomNavigationView.disableShiftingMode() {
     }
 }
 
+fun CharSequence.isEmpty(str: CharSequence?) {
+    if (str == null || str.isEmpty()) {
+
+    }
+}
 
 fun View.hideView() {
     visibility = View.GONE

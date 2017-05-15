@@ -26,7 +26,7 @@ class DiscussAdapter : BaseAdapter<PostList.Post> {
                 .crossFade()
                 .into(holder.getView(R.id.avatar))
 
-        holder.setText(R.id.name, post.author.nickname + "   lv."+ post.author.lv)
+        holder.setText(R.id.name, post.author.nickname + "   LV."+ post.author.lv)
         holder.setText(R.id.time, post.updated.friendly_time())
         holder.setText(R.id.desc, post.title)
         holder.setText(R.id.cmt_count, post.commentCount.toString())

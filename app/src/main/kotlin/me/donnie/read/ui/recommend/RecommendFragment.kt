@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.kennyc.view.MultiStateView
 import kotlinx.android.synthetic.main.fragment_recommend.*
+import me.donnie.divider.Divider
 import me.donnie.read.R
 import me.donnie.read.common.base.BaseFragment
 import me.donnie.read.data.entity.BookList
@@ -58,7 +59,11 @@ class RecommendFragment : BaseFragment(), RecommendContract.View {
 
         rv.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         //rv.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
-
+        Divider.with(activity)
+                .hideLastDivider()
+                .size(30)
+                .color(resources.getColor(R.color.gray_100))
+                .build().addTo(rv)
         refresh_layout.setOnRefreshListener {
             presenter.loadRecommend("male")
         }

@@ -18,7 +18,7 @@ class RemoteBookSource @Inject constructor(val bookApi: BookApi) {
     }
 
     fun getComplexDiscussList(start: Int): Observable<PostList> {
-        return bookApi.getDiscussList("ramble", "all", "comment-count", "all", start, 20, "true")
+        return bookApi.getDiscussList("ramble", "all", "updated", "all", start, 20, "true")
     }
 
     fun getDiscussDetail(discussId: String): Observable<PostDetail> {
