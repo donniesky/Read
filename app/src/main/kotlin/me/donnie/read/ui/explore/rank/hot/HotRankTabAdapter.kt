@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import me.donnie.read.R
-import me.donnie.read.ui.test.TestFragment
+import me.donnie.read.ui.explore.rank.fragment.HotCateFragment
 
 /**
  * @author donnieSky
@@ -15,11 +15,11 @@ import me.donnie.read.ui.test.TestFragment
  */
 class HotRankTabAdapter(val context: Context,
                         fm: FragmentManager,
-                        var datas: MutableList<String>) : FragmentPagerAdapter(fm) {
+                        val datas: MutableList<String>) : FragmentPagerAdapter(fm) {
 
 
     override fun getItem(position: Int): Fragment? {
-        return TestFragment.newInstance()
+        return HotCateFragment.newInstance(datas[position])
     }
 
     override fun getPageTitle(position: Int): CharSequence {
@@ -33,7 +33,7 @@ class HotRankTabAdapter(val context: Context,
     }
 
     override fun getCount(): Int {
-        return 3
+        return datas.size
     }
 
 }

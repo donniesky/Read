@@ -41,10 +41,9 @@ class ProviderModule {
     @Provides
     fun provideOkHttpClient(): OkHttpClient {
         val builder = OkHttpClient.Builder().let {
-            it.connectTimeout(3000, TimeUnit.SECONDS)
-            it.readTimeout(2000, TimeUnit.SECONDS)
-            it.writeTimeout(2000, TimeUnit.SECONDS)
-            it.retryOnConnectionFailure(true)
+            it.connectTimeout(30, TimeUnit.SECONDS)
+            it.readTimeout(20, TimeUnit.SECONDS)
+            it.writeTimeout(20, TimeUnit.SECONDS)
         }
 
         if (BuildConfig.DEBUG) {

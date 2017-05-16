@@ -3,6 +3,8 @@ package me.donnie.read.ui.explore.rank.hot
 import dagger.Component
 import me.donnie.read.common.injection.component.AppComponent
 import me.donnie.read.common.injection.scope.ActivityScope
+import me.donnie.read.ui.explore.rank.fragment.HotCateComponent
+import me.donnie.read.ui.explore.rank.fragment.HotCateModule
 
 /**
  * @author donnieSky
@@ -16,5 +18,7 @@ import me.donnie.read.common.injection.scope.ActivityScope
 interface HotRankComponent {
 
     fun inject(activity: HotRankActivity)
+
+    fun plus(module: HotCateModule): HotCateComponent
 
 }

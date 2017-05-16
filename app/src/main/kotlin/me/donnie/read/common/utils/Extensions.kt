@@ -1,5 +1,7 @@
 package me.donnie.read.common.utils
 
+import android.app.Activity
+import android.content.Context
 import android.graphics.*
 import android.os.Parcel
 import android.os.Parcelable
@@ -7,8 +9,10 @@ import android.support.design.internal.BottomNavigationItemView
 import android.support.design.internal.BottomNavigationMenuView
 import android.support.design.widget.BottomNavigationView
 import android.view.View
+import android.view.WindowManager
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import timber.log.Timber
+import java.lang.reflect.Field
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -18,6 +22,60 @@ import java.util.*
  * @description
  * @version
  */
+
+fun Context.getStatusBarHeight(): Int {
+    var c: Class<*>? = null
+    var obj: Any? = null
+    var field: Field? = null
+    var x: Int = 0
+    var statusBarHeight: Int = 0
+    try {
+        c = Class.forName("com.android.internal.R\$dimen")
+        obj = c!!.newInstance()
+        field = c.getField("status_bar_height")
+        x = field!!.get(obj).toString().toInt()
+        statusBarHeight = this.resources.getDimensionPixelSize(x)
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+    return statusBarHeight
+}
+
+fun Activity.setXiaomiDarkMode(): Boolean {
+    var clazz = this.window.javaClass
+    try {
+        var darkModeFlag = 0
+        val layoutParams = Class.forName("android.view.MiuiWindowManager\$LayoutParams")
+        val field = layoutParams.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE")
+        darkModeFlag = field.getInt(layoutParams)
+        val extraFlagField = clazz.getMethod("setExtraFlags", Int.javaClass, Int.javaClass)
+        extraFlagField.invoke(this.window, darkModeFlag, darkModeFlag)
+        return true
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+    return false
+}
+
+fun Activity.setMeizuDarkMode(): Boolean {
+    var result = false
+    try {
+        val lp = this.window.attributes
+        val darkFlag = WindowManager.LayoutParams::class.java.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON")
+        val meizuFlags = WindowManager.LayoutParams::class.java.getDeclaredField("meizuFlags")
+        darkFlag.isAccessible = true
+        meizuFlags.isAccessible = true
+        val bit = darkFlag.getInt(null)
+        var value = meizuFlags.getInt(lp)
+        value = value or bit
+        meizuFlags.setInt(lp, value)
+        this.window.attributes = lp
+        result = true
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+    return result
+}
 
 fun Bitmap.circleCrop(pool: BitmapPool): Bitmap {
     val size = Math.min(this.width, this.height)

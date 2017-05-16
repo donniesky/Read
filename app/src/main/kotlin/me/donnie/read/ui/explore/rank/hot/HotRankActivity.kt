@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_discuss.*
 import kotlinx.android.synthetic.main.activity_hot_rank.*
+import kotlinx.android.synthetic.main.content_book_list.*
 import me.donnie.divider.Divider
 import me.donnie.read.R
 import me.donnie.read.common.base.BaseActivity
@@ -76,6 +77,7 @@ class HotRankActivity : BaseActivity(), HotRankContract.View {
             datas.add(rank!!.totalRank!!)
             tabAdapter = HotRankTabAdapter(this, supportFragmentManager, datas)
             viewpager!!.adapter = tabAdapter
+            viewpager!!.offscreenPageLimit = datas.size
             tab.setupWithViewPager(viewpager)
         } else {
             toolbar.title = rank!!.shortTitle

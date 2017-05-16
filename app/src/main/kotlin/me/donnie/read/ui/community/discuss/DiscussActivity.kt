@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_discuss.*
+import kotlinx.android.synthetic.main.content_book_list.*
 import me.donnie.divider.Divider
 import me.donnie.read.R
 import me.donnie.read.common.base.BaseActivity
