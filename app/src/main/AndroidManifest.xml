@@ -34,6 +34,14 @@
         <activity android:name=".ui.explore.rank.hot.HotRankActivity"
                   android:label="@string/app_name"
                   android:theme="@style/AppTheme.Read.Light"/>
+
+        <activity android:name=".ui.explore.subject.SubjectActivity"
+                  android:label="@string/app_name"
+                  android:theme="@style/AppTheme.Read.Light"/>
+
+        <activity android:name=".ui.detail.BookDetailActivity"
+                  android:label="@string/app_name"
+                  android:theme="@style/AppTheme.Read.Light"/>
     </application>
 
 </manifest>

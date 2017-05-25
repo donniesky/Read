@@ -1,5 +1,6 @@
 package me.donnie.read.ui.recommend
 
+import me.donnie.read.data.entity.BookList
 import me.donnie.read.ui.main.MainContract
 import javax.inject.Inject
 
@@ -9,4 +10,10 @@ import javax.inject.Inject
  * @description
  * @version
  */
-class RecommendNavigator @Inject constructor(navigator: MainContract.Navigator) : RecommendContract.Navigator
+class RecommendNavigator @Inject constructor(val navigator: MainContract.Navigator) : RecommendContract.Navigator {
+
+    override fun navigateToDetail(book: BookList.Book) {
+        navigator.navigateToDetail(book)
+    }
+
+}

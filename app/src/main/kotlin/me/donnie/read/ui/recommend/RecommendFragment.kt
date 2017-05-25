@@ -80,6 +80,11 @@ class RecommendFragment : BaseFragment(), RecommendContract.View {
             state_view.viewState = MultiStateView.VIEW_STATE_LOADING
             presenter.loadRecommend("male")
         }
+
+        adapter!!.setOnItemClickListener { adapter, _, position ->
+            val item = adapter.getItem(position) as BookList.Book
+            navigator.navigateToDetail(item)
+        }
     }
 
     override fun loadRecommendSuccess(books: List<BookList.Book>) {

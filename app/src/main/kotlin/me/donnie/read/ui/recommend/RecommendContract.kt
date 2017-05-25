@@ -13,7 +13,9 @@ import me.donnie.read.data.entity.BookList.Book
  */
 interface RecommendContract {
 
-    interface Navigator : BaseNavigator
+    interface Navigator : BaseNavigator {
+        fun navigateToDetail(book: Book)
+    }
 
     interface View : BaseView {
         fun loadRecommendSuccess(books: List<Book>)

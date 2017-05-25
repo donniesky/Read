@@ -86,6 +86,11 @@ class HotCateFragment : BaseFragment(), HotCateContract.View {
             refresh_layout.isRefreshing = true
             presenter.loadHotRank(id!!)
         }
+
+        adapter!!.setOnItemClickListener { adapter, _, position ->
+            val item: BookList.Book = adapter.getItem(position) as BookList.Book
+            navigator.navigateToDetail(item)
+        }
     }
 
     override fun loadRankSuccess(books: List<BookList.Book>) {

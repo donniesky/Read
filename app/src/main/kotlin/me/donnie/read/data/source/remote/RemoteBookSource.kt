@@ -66,4 +66,20 @@ class RemoteBookSource @Inject constructor(val bookApi: BookApi) {
                           limit: Int): Observable<BookList> {
         return bookApi.getBookByCategory(gender, type, major, minor, start, limit)
     }
+
+    fun getBestReviews(id: String): Observable<ReviewList> {
+        return bookApi.getBookReview(id)
+    }
+
+    fun getBookDetail(bookId: String): Observable<BookDetail> {
+        return bookApi.getBookDetail(bookId)
+    }
+
+    fun getRecommendBooks(bookId: String): Observable<BookList> {
+        return bookApi.getRecommendBooks(bookId)
+    }
+
+    fun getRecommendBookList(bookId: String): Observable<BooksList> {
+        return bookApi.getRecommendBookList(bookId)
+    }
 }

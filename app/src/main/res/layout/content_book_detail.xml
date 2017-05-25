@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_book_detail">
 
@@ -13,7 +14,263 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <LinearLayout
+            android:padding="@dimen/dp_15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="@dimen/dp_60"
+                android:layout_height="@dimen/dp_80"
+                tools:src="@mipmap/ic_launcher"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/novel_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="@dimen/sp_18"
+                    tools:text="aksdjfl"/>
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="@dimen/sp_16"
+                    tools:text="alksdjklf"/>
+
+                <TextView
+                    android:id="@+id/type"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="@dimen/sp_14"
+                    tools:text="asjdfhajkshd"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingLeft="@dimen/dp_15"
+            android:paddingRight="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/add"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="add"/>
+
+            <Space
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/read"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="read"/>
+
+        </LinearLayout>
+
+        <include layout="@layout/line_hor"/>
+
+        <LinearLayout
+            android:paddingTop="@dimen/dp_15"
+            android:paddingBottom="@dimen/dp_15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/followerCount"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="count\n34753948"/>
+
+            <TextView
+                android:id="@+id/retentionRatio"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="count\n34753948"/>
+
+            <TextView
+                android:id="@+id/wordCount"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="count\n34753948"/>
+
+        </LinearLayout>
+
+        <include layout="@layout/line_hor"/>
+
+        <!--tag 标签View-->
+
+        <TextView
+            android:id="@+id/desc"
+            android:paddingLeft="@dimen/dp_15"
+            android:paddingRight="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="aklsjdkjfhajhsdkasdfasdf
+            fhahsjdhfjahsjdfhjaajshdfasdfasdfasdjk"/>
+
+        <include layout="@layout/space_view"/>
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_hot"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="@dimen/sp_16"
+                android:text="@string/hot_comment"/>
+
+            <TextView
+                android:id="@+id/txt_hot_more"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/more"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="@dimen/sp_14"/>
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/best_comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <include layout="@layout/space_view"/>
+
+        <RelativeLayout
+            android:padding="@dimen/dp_15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/community"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="title"/>
+
+            <TextView
+                android:id="@+id/count"
+                android:layout_below="@id/community"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="comment count"/>
+
+            <ImageView
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_arrow_material"/>
+
+        </RelativeLayout>
+
+        <include layout="@layout/space_view"/>
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_interest"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="@dimen/sp_16"
+                android:text="@string/maybe_interest"/>
+
+            <TextView
+                android:id="@+id/txt_interest_more"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/more"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="@dimen/sp_14"/>
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/recommend_subjects"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <include layout="@layout/space_view"/>
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_recommend_books"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="@dimen/sp_16"
+                android:text="@string/recommend_books"/>
+
+            <TextView
+                android:id="@+id/txt_books_more"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/more"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="@dimen/sp_14"/>
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/recommend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 

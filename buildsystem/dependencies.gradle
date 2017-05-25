@@ -1,5 +1,5 @@
 ext.versions = [
-        minSdk               : 16,
+        minSdk               : 18,
         targetSdk            : 25,
         compileSdk           : 25,
         buildTools           : '25.0.3',
@@ -19,6 +19,8 @@ ext.versions = [
         taggroup             : '1.4@aar',
         walle                : '0.1.0',
         divider              : '0.0.1',
+        searchFilter         : 'v1.0.4',
+        fresco               : '1.3.0',
 
         // Reactive
         rxJava2              : '2.0.5',
@@ -89,6 +91,8 @@ ext.libraries = [
         walle                   : "com.github.donniesky:Walle:$versions.walle",
         divider                 : "com.github.donnieSky:Divider:$versions.divider",
         databinding             : "com.android.databinding:compiler:$versions.databinding",
+        searchFilter            : "com.github.Yalantis:SearchFilter:$versions.searchFilter",
+        fresco                  : "com.facebook.fresco:fresco:$versions.fresco",
 
         kotlin_stdlib           : "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin",
         kotlin_runtime          : "org.jetbrains.kotlin:kotlin-runtime:$versions.kotlin",

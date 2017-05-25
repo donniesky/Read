@@ -112,4 +112,6 @@ dependencies {
     compile libraries.walle
     compile libraries.divider
     //kapt libraries.databinding
+    compile libraries.searchFilter
+    compile libraries.fresco
 }

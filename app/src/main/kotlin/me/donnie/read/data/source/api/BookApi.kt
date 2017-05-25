@@ -84,4 +84,16 @@ interface BookApi {
                           @Query("minor") minor: String,
                           @Query("start") start: Int,
                           @Query("limit") limit: Int): Observable<BookList>
+
+    @GET("/post/review/best-by-book")
+    fun getBookReview(@Query("book") id: String): Observable<ReviewList>
+
+    @GET("/book/{bookId}")
+    fun getBookDetail(@Path("bookId") bookId: String): Observable<BookDetail>
+
+    @GET("/book/{bookId}/recommend")
+    fun getRecommendBooks(@Path("bookId") bookId: String): Observable<BookList>
+
+    @GET("/book-list/{bookId}/recommend")
+    fun getRecommendBookList(@Path("bookId") bookId: String): Observable<BooksList>
 }

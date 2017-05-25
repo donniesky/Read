@@ -13,7 +13,9 @@ import me.donnie.read.data.entity.BookList
  */
 interface HotCateContract {
 
-    interface Navigator : BaseNavigator
+    interface Navigator : BaseNavigator {
+        fun navigateToDetail(book: BookList.Book)
+    }
 
     interface View : BaseView {
         fun loadRankSuccess(books: List<BookList.Book>)

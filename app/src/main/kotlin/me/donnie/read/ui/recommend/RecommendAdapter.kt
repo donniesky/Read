@@ -22,7 +22,7 @@ class RecommendAdapter : BaseAdapter<Book> {
         holder.setText(R.id.title, book.title)
         holder.setText(R.id.author, "作者: "+book.author)
         holder.setText(R.id.desc, "简介: "+book.shortIntro)
-        holder.setText(R.id.update, book.updated.friendly_time()+"更新  "+book.lastChapter)
+        holder.setText(R.id.update, book.updated!!.friendly_time()+"更新  "+book.lastChapter)
 
         Glide.with(mContext).load(BuildConfig.IMG_BASE_URL + book.cover)
                 .crossFade()

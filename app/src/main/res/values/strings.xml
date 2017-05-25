@@ -17,4 +17,24 @@
     <string name="total_rank">总榜</string>
     <string name="subject_book">主题书单</string>
     <string name="category">分类</string>
+
+    <string name="str_all_selected">All categories</string>
+    <string name="more">更多</string>
+    <string name="hot_comment">热门书评</string>
+    <string name="maybe_interest">你可能感兴趣</string>
+    <string name="recommend_books">推荐书单</string>
+
+    <string-array name="job_titles">
+        <item>All categories</item>
+        <item>Design</item>
+        <item>iOS development</item>
+        <item>Android development</item>
+        <item>Web development</item>
+        <item>Business analysis</item>
+        <item>Research</item>
+        <item>Sales</item>
+        <item>Quality assurance</item>
+        <item>Customer support</item>
+        <item>Other</item>
+    </string-array>
 </resources>

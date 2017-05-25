@@ -69,6 +69,7 @@ class ExploreFragment : BaseFragment() {
         adapter!!.setOnItemClickListener { _, _, position -> run {
             when(position) {
                 0 -> navigator.navigateToRank()
+                1 -> navigator.navigateToSubject()
             }
         } }
     }

@@ -1,5 +1,6 @@
 package me.donnie.read.ui.explore.rank.fragment
 
+import me.donnie.read.data.entity.BookList
 import me.donnie.read.ui.explore.rank.hot.HotRankContract
 import javax.inject.Inject
 
@@ -9,4 +10,9 @@ import javax.inject.Inject
  * @description
  * @version
  */
-class HotCateNavigator @Inject constructor(val navigator: HotRankContract.Navigator) : HotCateContract.Navigator
+class HotCateNavigator @Inject constructor(val navigator: HotRankContract.Navigator) : HotCateContract.Navigator {
+    override fun navigateToDetail(book: BookList.Book) {
+        navigator.navigateToDetail(book)
+    }
+
+}

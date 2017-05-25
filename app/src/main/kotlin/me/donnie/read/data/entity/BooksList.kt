@@ -10,8 +10,8 @@ import me.donnie.read.common.utils.createParcel
  * @description
  * @version
  */
-class BooksList(var total: Int,
-                var bookLists: List<Books>,
+class BooksList(var total: Int = 0,
+                var booklists: List<Books>,
                 var ok: Boolean) {
 
     data class Books(var _id: String,

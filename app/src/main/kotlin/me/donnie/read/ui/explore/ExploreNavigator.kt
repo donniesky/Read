@@ -15,4 +15,8 @@ class ExploreNavigator @Inject constructor(val navigator: MainContract.Navigator
         navigator.navigateToRank()
     }
 
+    override fun navigateToSubject() {
+        navigator.navigateToSubject()
+    }
+
 }

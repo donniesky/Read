@@ -14,6 +14,7 @@ interface ExploreContract {
 
     interface Navigator : BaseNavigator {
         fun navigateToRank()
+        fun navigateToSubject()
     }
 
     interface View : BaseView

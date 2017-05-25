@@ -113,6 +113,11 @@ class HotRankActivity : BaseActivity(), HotRankContract.View {
                 refresh_layout.isRefreshing = true
                 presenter.loadHotRank(rank!!._id)
             }
+
+            adapter!!.setOnItemClickListener { adapter, _, position ->
+                val item = adapter.getItem(position) as BookList.Book
+                navigator.navigateToDetail(item)
+            }
         }
     }
 
